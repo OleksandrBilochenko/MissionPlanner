@@ -343,6 +343,9 @@
         <param index="6" label="Longitude">Longitude</param>
         <param index="7" label="Altitude" units="m">Altitude, not used. Should be sent as NaN. May be supported in a future version of this message.</param>
       </entry>
+	    <entry id="43004" name="MAV_CMD_DO_SWITCH_GPS">
+		    <description>Switch GPS status to "on/off"</description>
+	    </entry>
     </enum>
     <enum name="SCRIPTING_CMD">
       <entry value="0" name="SCRIPTING_CMD_REPL_START">

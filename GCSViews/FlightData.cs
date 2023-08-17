@@ -184,6 +184,7 @@ namespace MissionPlanner.GCSViews
             HighLatency_Enable,
             HighLatency_Disable,
             Toggle_Safety_Switch,
+            Do_Switch_GPS,
         }
 
         private Dictionary<int, string> NIC_table = new Dictionary<int, string>()
@@ -1693,6 +1694,25 @@ namespace MissionPlanner.GCSViews
                         ((Control)sender).Enabled = true;
                         return;
                     }
+                    /*if (CMB_action.Text.ToLower().Contains(actions.Switch_GPS.ToString().ToLower()))
+                    {
+                        MainV2.comPort.doCommand
+
+                        bool isOn = MainV2.comPort.GetParam("AHRS_GPS_USE").ToString().Trim() == "1";
+
+                        if (MainV2.comPort.setParam(new string[] { "AHRS_GPS_USE" }, Convert.ToDouble(!isOn)))
+                        {
+                            string text = "GPS is " + (!isOn ? "on" : "off");
+                            CustomMessageBox.Show(text);
+                        }
+                        else
+                        {
+                            CustomMessageBox.Show(Strings.CommandFailed + " SWITCH GPS", Strings.ERROR);
+                        }
+
+                        ((Control)sender).Enabled = true;
+                        return;
+                    }*/
 
                     if (CMB_action.Text == actions.Battery_Reset.ToString())
                     {
@@ -1708,7 +1728,7 @@ namespace MissionPlanner.GCSViews
                     }
                     catch (ArgumentException ex)
                     {
-                        cmd = (MAVLink.MAV_CMD) Enum.Parse(typeof(MAVLink.MAV_CMD),
+                        cmd = (MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD),
                             "DO_START_" + CMB_action.Text.ToUpper());
                     }
 
